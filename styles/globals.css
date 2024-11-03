@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Variables */
+:root {
+  --primary-gradient: linear-gradient(90deg, #000000, #2581c4);
+  --font-main: 'Poppins', sans-serif;
+  --text-main: #ededed; /* Main text color */
+  --bg-main: #0a0a0a; /* Dark background color */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  background: var(--primary-gradient);
+  background-size: cover;
+}
+
+a, button {
+  color: var(--text-main);
+  font-weight: 500;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Gradient Hover & Animation */
+@keyframes gradientBackground {
+  0%, 100% { background-position: left; }
+  50% { background-position: right; }
+}
+
+.animated-gradient {
+  background: var(--primary-gradient);
+  background-size: 200% 200%;
+  animation: gradientBackground 4s ease infinite;
+  transition: background 0.3s ease;
+}
+
+.hover-gradient:hover {
+  transition: background 0.3s ease-in-out;
+}
+
+/* Links & Buttons Styling */
+a, button {
+  color: #ededed;
+  font-weight: 500;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+a:hover, button:hover {
+  color: #2581c4;
+}
+
+/* Reset margins and ensure full height */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
