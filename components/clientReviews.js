@@ -6,7 +6,7 @@ const reviews = [
 const ClientReviews = () => (
   <section id="client-reviews" className="py-20 bg-gray-50" style={{ background: "black", fontFamily:"League Spartan"}}>
     <div className="max-w-6xl mx-auto px-5">
-      <h2 className="text-4xl font-bold text-center text-gray-800 mb-10">Client Reviews</h2>
+      <h2 className="text-4xl font-bold text-center text-white mb-10">Client Reviews</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
         {reviews.map((review, index) => (
           <div key={index} className="bg-white rounded-lg shadow p-5">

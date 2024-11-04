@@ -23,7 +23,7 @@ const Header = () => (
           </a>
         </li>
         <li>
-          <a href="#contact" className="hover-gradient px-3 py-2 rounded text-white transition duration-300 ease-in-out">
+          <a href="#ContactSection" className="hover-gradient px-3 py-2 rounded text-white transition duration-300 ease-in-out">
             Contact
           </a>
         </li>
