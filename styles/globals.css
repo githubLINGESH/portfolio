@@ -7,7 +7,7 @@
   --primary-gradient: linear-gradient(90deg, #000000, #2581c4);
   --font-main: 'Poppins', sans-serif;
   --text-main: #ededed; /* Main text color */
-  --bg-main: #0a0a0a; /* Dark background color */
+  --bg-main: black; /* Dark background color */
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { FaTools, FaLaptopCode } from "react-icons/fa"; 
 
 const publishedProjects = [
-  { name: 'GenE Learning Platform', link: 'https://gene-learning.com', description: 'AI-based e-learning with personalized tutoring.' },
-  { name: 'Construction Web Site', link: 'https://constructeaze-hdsc.onrender.com/', description: 'Comprehensive website for construction services.' }
+  { name: 'GenE Learning Platform', link: 'https://gene-learning.com', description: 'AI-based e-learning with personalized tutoring.', image: 'ai.png',},
+  { name: 'Construction Web Site', link: 'https://constructeaze-hdsc.onrender.com/', description: 'Comprehensive website for construction services.', image: 'dl.png', }
 ];
 
 const PublishedProjects = () => {
@@ -25,12 +24,16 @@ const PublishedProjects = () => {
               {/* Main content container */}
               <div
                 onClick={() => setClickedIndex(index)}
-                className={`relative p-6 bg-gray-950 rounded-lg cursor-pointer transform transition duration-300 group-hover:translate-y-1 ${
+                className={`relative p-6 flex items-center bg-gray-950 rounded-lg cursor-pointer transform transition duration-300 group-hover:translate-y-1 ${
                   clickedIndex === index ? 'bg-gradient-to-r from-green-500 to-blue-600' : ''
                 }`}
               >
+                {/* Small Image */}
+                <img
+                  src={project.image}
+                  className="w-16 h-16 rounded-xl object-cover"
+                />
                 <div className="relative z-10">
-                  <FaTools className="text-blue-500 mr-2" />
                   <h3 className="text-2xl font-semibold text-white">{project.name}</h3>
                   <p className="mt-2 text-gray-300">{project.description}</p>
                   <a

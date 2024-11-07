@@ -18,14 +18,15 @@ const ContactSection = () => {
           
           {/* Ask My Bot Section */}
           <motion.div 
-            className="p-10 rounded-lg shadow-lg bg-gray-900 text-white"
+            className="p-10 rounded-lg shadow-lg bg-gray-950 text-white"
             whileHover={{ scale: 1.05 }}
           >
             <h3 className="text-3xl font-bold mb-4">Ask My Bot</h3>
             <p className="mb-4 text-lg">Have questions about me? Ask my bot!</p>
             <div className="mt-6">
               <button 
-                className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition"
+                className="px-6 py-3 text-white font-bold rounded-lg hover:bg-white-700 transition"
+                style={{backgroundColor:"#2581c4"}}
               >
                 Chat with Bot
               </button>
