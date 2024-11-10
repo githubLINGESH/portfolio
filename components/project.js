@@ -1,0 +1,52 @@
+const projects = [
+    {
+      id: 1,
+      name: 'Readmission Risk Prediction Model',
+      description: 'Healthcare analytics platform integrating machine learning to predict patient readmission risks.',
+      roles: 'Backend Developer, LLM Integrator, Data Engineer',
+      techStacks: 'Python, Machine Learning, Gemini LLM, React, SHAP, PostgreSQL',
+      githubLink: 'https://github.com/githubLINGESH/Readmission-Dashboard/',
+      demoLink: 'link-to-demo-video',
+      imageSrc: 'Rdaash.png',
+    },
+    {
+      id: 2,
+      name: 'Vcom: Conversational AI eCommerce Platform',
+      description: 'LLM-powered platform with vector search for dynamic, language-based product recommendations.',
+      roles: 'Full-Stack Developer, NLP Engineer, Database Manager',
+      techStacks: 'React, STT, TTS, Node.js, LangChain, LLM, Vector Search, MongoDB',
+      githubLink: 'https://github.com/githubLINGESH/VoiceInterfaced-ECom-backend',
+      liveLink: 'http://dealon.onrender.com/',
+      imageSrc: 'EcomCart.png',
+    },
+    {
+      id: 3,
+      name: 'GenE: AI-Based E-Learning Platform with Personalized Tutoring',
+      description: 'AI-based e-learning platform offering personalized tutoring.',
+      roles: 'Full-Stack Developer, TTS Model Integrator, Database Manager',
+      techStacks: 'React, Next.js, MongoDB, GeminiAI',
+      githubLink: 'https://github.com/githubLINGESH/GenE',
+      imageSrc: 'genWebsite.png',
+    },
+    {
+      id: 4,
+      name: 'Emotional Intelligence Multilingual Voice Translator (EIMVT)',
+      description: 'Bidirectional voice translator capable of detecting and translating emotional tones in real-time.',
+      roles: 'Data Engineer, SER Model Implementer',
+      techStacks: 'HTML, CSS, JavaScript, Python, Google Cloud APIs',
+      githubLink: 'https://github.com/githubLINGESH/SpeechEmo_Recogintion',
+      imageSrc: 'Extension.png',
+    },
+    {
+      id: 5,
+      name: 'Construction Web Site',
+      description: 'Comprehensive construction site website, showcasing projects, services, and company information.',
+      roles: 'Backend Developer, Database Manager',
+      techStacks: 'HTML, CSS, JavaScript, Node.js, MongoDb',
+      githubLink: 'https://github.com/githubLINGESH/ConstructEaze',
+      liveLink: 'https://constructeaze-hdsc.onrender.com/',
+      imageSrc: 'Purchase.png',
+    },
+  ];
+
+export default projects;
