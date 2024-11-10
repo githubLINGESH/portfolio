@@ -48,7 +48,7 @@ const ContactSection = () => {
     setChatHistory(prev => [...prev, newMessage]);
     
     try {
-      const response = await axios.post('http://localhost:5000/api/chat', { query: message });
+      const response = await axios.post('https://lingesh.onrender.com/api/chat', { query: message });
       const botMessage = { type: 'bot', content: response.data.answer };
       setChatHistory(prev => [...prev, botMessage]);
       setBotResponse(response.data.answer);
@@ -71,7 +71,7 @@ const ContactSection = () => {
     };
   
     try {
-      await axios.post('http://localhost:5000/api/feedback', feedbackData);
+      await axios.post('https://lingesh.onrender.com/api/feedback', feedbackData);
       alert('Thank you for your feedback!');
       setIsFormVisible(false);
     } catch (error) {
@@ -200,8 +200,8 @@ const ContactSection = () => {
             </div>
             <button 
               onClick={() => setIsFormVisible(!isFormVisible)}
-              className="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-blue-600 to-blue-400 hover:opacity-90 transition-opacity font-semibold"
-            >
+              className="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-500 transition-colors"
+              style={{ color: "white" }}>
               {isFormVisible ? 'Close Form' : 'Contact Form'}
             </button>
           </motion.div>
@@ -249,7 +249,8 @@ const ContactSection = () => {
                 </div>
                 <button 
                   type="submit" 
-                  className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition-colors"
+                  className="w-full py-3 text-white font-semibold rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-500 transition-colors"
+                  style={{ color: "white" }}
                 >
                   Send Message
                 </button>
