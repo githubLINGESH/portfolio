@@ -58,7 +58,7 @@ const TechStack = () => {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
-        <motion.h2 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mb-20">
+        <motion.h2 className="text-4xl font-extrabold text-center text-transparent bg-clip-text text-white mb-20">
           Skills
         </motion.h2>
 
@@ -66,9 +66,9 @@ const TechStack = () => {
           {techStack.map((tech, index) => (
             <motion.div
               key={tech.id}
-              className="relative group rounded-xl shadow-lg p-6 border border-transparent bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-lg overflow-hidden transform transition-transform hover:scale-105"
+              className="relative group rounded-xl shadow-lg p-6 border border-transparent bg-gradient-to-br from-zinc-900 to-gray-900 backdrop-blur-lg overflow-hidden transform transition-transform hover:scale-105"
               style={{
-                borderColor: hoveredSkill?.id === tech.id ? 'rgba(58, 142, 255, 0.8)' : 'transparent',
+                borderColor: hoveredSkill?.id === tech.id ? 'gray' : 'transparent',
                 boxShadow: hoveredSkill?.id === tech.id ? '0 4px 20px rgba(58, 142, 255, 0.3)' : 'none',
               }}
               initial={{ opacity: 0, y: 20 }}
