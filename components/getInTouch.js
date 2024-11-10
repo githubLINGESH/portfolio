@@ -1,8 +1,23 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import axios from 'axios';
+import { FaInstagram, FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 const ContactSection = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [botResponse, setBotResponse] = useState('');
+  const [userMessage, setUserMessage] = useState('');
+
+  const handleBotQuery = async () => {
+    if (!userMessage.trim()) return;
+    
+    try {
+      const response = await axios.post('http://localhost:5000/api/chat', { query: userMessage });
+      setBotResponse(response.data.answer);
+    } catch (error) {
+      console.error('Error fetching bot response:', error);
+    }
+  };
 
   return (
     <section id="ContactSection" className="py-20" style={{ background: "var(--bg-main)", fontFamily: "League Spartan", color: "var(--text-main)" }}>
@@ -18,48 +33,64 @@ const ContactSection = () => {
           
           {/* Ask My Bot Section */}
           <motion.div 
-            className="p-10 rounded-lg shadow-lg bg-gray-950 text-white"
+            className="p-10 rounded-lg shadow-lg bg-zinc-900 text-white"
             whileHover={{ scale: 1.05 }}
           >
             <h3 className="text-3xl font-bold mb-4">Ask My Bot</h3>
             <p className="mb-4 text-lg">Have questions about me? Ask my bot!</p>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col items-center">
+              <textarea
+                value={userMessage}
+                onChange={(e) => setUserMessage(e.target.value)}
+                placeholder="Type your question here..."
+                className="w-full p-2 rounded bg-gray-550 text-white mb-4 resize-none"
+                rows="2"
+              />
               <button 
-                className="px-6 py-3 text-white font-bold rounded-lg hover:bg-white-700 transition"
-                style={{backgroundColor:"#2581c4"}}
+                onClick={handleBotQuery}
+                className="px-6 py-3 text-white font-bold rounded-lg bg-gradient-to-r from-teal-400 to-cyan-500 transition"
+                style={{ backgroundColor: "#2581c4" }}
               >
                 Chat with Bot
               </button>
+              {botResponse && (
+                <motion.div 
+                  className="mt-6 p-4 bg-gray-800 rounded-lg text-left text-white"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  <p><strong>Bot:</strong> {botResponse}</p>
+                </motion.div>
+              )}
             </div>
           </motion.div>
           
           {/* Get in Touch Section */}
           <motion.div 
-            className="p-10 rounded-lg shadow-lg bg-gray-900 text-white"
+            className="p-10 rounded-lg shadow-lg bg-zinc-900 text-white"
             whileHover={{ scale: 1.05 }}
           >
             <h3 className="text-3xl font-bold mb-4">Get in Touch</h3>
             <p className="mb-4 text-lg">Connect with me on social media or leave a message.</p>
             <div className="flex space-x-4 mt-6">
               {/* Social Media Icons */}
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-                {/* LinkedIn Icon */}
-                <i className="fab fa-linkedin fa-2x"></i>
+              <a href="https://www.linkedin.com/in/lingeshwaran-g-aa158a262/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+                <FaLinkedin/>
               </a>
-              <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-                {/* GitHub Icon */}
-                <i className="fab fa-github fa-2x"></i>
+              <a href="https://github.com/githubLINGESH/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+                <FaGithub/>
               </a>
-              <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-                {/* Twitter Icon */}
-                <i className="fab fa-twitter fa-2x"></i>
+              <a href="https://x.com/Lingesh03552509" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+                <FaTwitter/>
               </a>
-              {/* Add other social media links similarly */}
+              <a href="https://www.instagram.com/learnwithlingesh/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+                <FaInstagram/>
+              </a>
             </div>
             <div className="mt-6">
               <button 
                 onClick={() => setIsFormVisible(!isFormVisible)}
-                className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition"
+                className="px-6 py-3 text-white font-bold rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-500 transition"
               >
                 {isFormVisible ? 'Close Form' : 'Get in Touch'}
               </button>

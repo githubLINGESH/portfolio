@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { FaTools, FaLaptopCode } from "react-icons/fa"; 
+import { FaTools, FaLaptopCode } from "react-icons/fa";
 import projects from "../components/project";
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(projects[0]); // Default to the first project
+  const [selectedProject, setSelectedProject] = useState(projects[0]);
 
   return (
     <section
@@ -22,25 +22,17 @@ const Projects = () => {
           {projects.map((project) => (
             <div
               key={project.id}
+              className="relative inline-block lg:block w-40 h-28 cursor-pointer rounded-lg overflow-hidden shadow-lg border-2"
+              onMouseEnter={() => setSelectedProject(project)}
               onClick={() => setSelectedProject(project)}
-              className={`relative inline-block lg:block w-40 h-28 cursor-pointer rounded-lg overflow-hidden shadow-lg border-2 ${
-                selectedProject.id === project.id ? 'border-blue-500' : 'border-transparent'
-              }`}
               style={{
+                borderColor: selectedProject.id === project.id ? '#2581c4' : 'transparent',
                 backgroundImage: `url(${project.imageSrc})`,
                 backgroundSize: 'contain',
-                backgroundRepeat : 'no-repeat',
+                backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
               }}
             >
-              {/* Overlay for Hover Effect */}
-              <div
-                className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70 transition duration-300 text-white"
-              >
-                <span className="opacity-0 hover:opacity-100 text-sm font-bold text-center p-2">
-                  {project.name}
-                </span>
-              </div>
             </div>
           ))}
         </div>
