@@ -47,9 +47,9 @@ const About = () => (
 
           {/* Download Resume Button */}
           <a
-            href="/path/to/resume.pdf"
+            href="https://drive.google.com/file/d/1DiEcuSbhUsDrv6VahgOyCcpI_xoO6x90/view?usp=sharing"
             download="Lingesh_Resume.pdf"  // File name for download
-            className="px-6 py-3 bg-gray-200 text-black font-bold rounded-lg transition"
+            className="px-6 py-4 bg-gray-200 text-black font-bold rounded-lg transition"
             style={{ textDecoration: "none" }}  // Remove underline
           >
             Download Resume

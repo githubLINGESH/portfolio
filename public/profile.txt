@@ -1,0 +1,8 @@
+Name: Lingeshwaran G
+Education: Bachelor in Computer Science
+Experience: Freelance Developer with expertise in React, Node.js, and Python. 
+Projects: Developed multiple applications in AI, natural language processing, and e-commerce.
+Skills: Machine Learning, Speech Recognition, Voice Synthesis, Web Development, Emotion Detection.
+Hobbies: Blogging, Open-Source Contributions, and Public Speaking.
+LinkedIn: https://www.linkedin.com/in/lingeshwaran-g-aa158a262/
+GitHub: https://github.com/githubLINGESH/
