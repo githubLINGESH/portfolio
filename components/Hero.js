@@ -18,10 +18,7 @@ const Hero = () => {
   return (
     <section
       ref={ref}
-      className="h-screen w-full flex items-center justify-center overflow-hidden relative"
-      style={{
-        backgroundColor : "var(--bg-main)"
-      }}
+      className="h-screen bg-black w-full flex items-center justify-center overflow-hidden relative"
     >
       {/* Profile Background with ease pop-out transition */}
       <motion.div
