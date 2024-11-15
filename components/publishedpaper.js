@@ -16,18 +16,18 @@ const generateRandomGradient = () => {
 // Research papers data
 const publishedPapers = [
   { 
-    name: 'GenE Learning Platform', 
-    researchUrl: 'https://gene-learning.com', 
-    downloadUrl: '/path/to/download/document1.pdf', 
-    description: 'AI-based e-learning with personalized tutoring.', 
-    thumbnail: 'ai.png' 
+    name: 'Readmission Risk Prediction', 
+    researchUrl: '', 
+    downloadUrl: 'Readmission_Reasearch_paper_ieee.pdf', 
+    description: '', 
+    thumbnail: 'paper_2.png' 
   },
   { 
-    name: 'Construction Web Site', 
-    researchUrl: 'https://constructeaze-hdsc.onrender.com/', 
-    downloadUrl: '/path/to/download/document2.pdf', 
+    name: 'Emotion Intelligent Multilingual voice translator(EIMVT)', 
+    researchUrl: '', 
+    downloadUrl: 'researchpaper.pdf', 
     description: 'Comprehensive website for construction services.', 
-    thumbnail: 'dl.png' 
+    thumbnail: 'paper_1.png' 
   }
 ];
 
@@ -72,7 +72,7 @@ const PublishedPapers = () => {
               <img
                 src={paper.thumbnail}
                 alt={paper.name}
-                className="w-16 h-16 rounded-xl object-cover mr-4"
+                className="w-36 h-24 rounded-xl object-cover mr-4"
               />
               
               {/* Paper Details */}
