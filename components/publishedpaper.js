@@ -26,7 +26,7 @@ const publishedPapers = [
     name: 'Emotion Intelligent Multilingual voice translator(EIMVT)', 
     researchUrl: '', 
     downloadUrl: 'researchpaper.pdf', 
-    description: 'Comprehensive website for construction services.', 
+    description: 'Mulitlingual translator system.', 
     thumbnail: 'paper_1.png' 
   }
 ];
