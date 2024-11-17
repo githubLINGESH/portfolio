@@ -19,14 +19,14 @@ const publishedPapers = [
     name: 'Readmission Risk Prediction', 
     researchUrl: '', 
     downloadUrl: 'Readmission_Reasearch_paper_ieee.pdf', 
-    description: '', 
+    description: 'A Robust Software to reduct the readmission risk and predict though ML', 
     thumbnail: 'paper_2.png' 
   },
   { 
     name: 'Emotion Intelligent Multilingual voice translator(EIMVT)', 
     researchUrl: '', 
     downloadUrl: 'researchpaper.pdf', 
-    description: 'Mulitlingual translator system.', 
+    description: 'Multilingual translator system build with Deep learning', 
     thumbnail: 'paper_1.png' 
   }
 ];
@@ -72,7 +72,7 @@ const PublishedPapers = () => {
               <img
                 src={paper.thumbnail}
                 alt={paper.name}
-                className="w-36 h-24 rounded-xl object-cover mr-4"
+                className="w-50 h-32 rounded-xl object-cover mr-4"
               />
               
               {/* Paper Details */}
@@ -105,20 +105,21 @@ const PublishedPapers = () => {
         </motion.div>
       </div>
 
-      {/* Shake effect styling */}
+      {/* Subtle shake effect styling */}
       <style jsx>{`
         @keyframes shake {
           0% { transform: translate(0, 0); }
-          25% { transform: translate(1px, -0.5px); }
-          50% { transform: translate(-1px, 0.5px); }
-          75% { transform: translate(1px, 0.5px); }
+          25% { transform: translate(0.5px, -0.2px); }
+          50% { transform: translate(-0.5px, 0.2px); }
+          75% { transform: translate(0.5px, 0.2px); }
           100% { transform: translate(0, 0); }
         }
 
         .shake {
-          animation: shake 0.3s infinite;
+          animation: shake 0.2s infinite;
         }
       `}</style>
+
     </section>
   );
 };
