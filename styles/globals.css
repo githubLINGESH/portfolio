@@ -22,7 +22,7 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   background: var(--primary-gradient);
-  background-size: cover;
+  background-size: contain;
 }
 
 a, button {
