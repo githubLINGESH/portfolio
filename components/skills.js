@@ -99,7 +99,7 @@ const NeuralNetworkTechStack = () => {
   return (
     <div 
       ref={containerRef}
-      className="relative min-h-screen bg-black to-black "
+      className="relative min-h-screen bg-black to-black"
     >
       <div className="max-w-7xl">
         <h2 className="text-4xl font-bold text-center text-white">
@@ -107,8 +107,25 @@ const NeuralNetworkTechStack = () => {
         </h2>
         
         <div className="min-w-screen relative h-[140vh]">
-          {/* Render edges */}
+          {/* Render edges with custom color glow */}
           <svg className="absolute inset-0 w-full h-full">
+            <defs>
+              {/* Glow filter with custom color */}
+              <filter id="custom-glow">
+                <feColorMatrix 
+                  type="matrix" 
+                  values="0 0 0 0 0.149
+                          0 0 0 0 0.506
+                          0 0 0 0 0.769
+                          0 0 0 1 0"
+                />
+                <feGaussianBlur className="blur" result="coloredBlur" stdDeviation="4"></feGaussianBlur>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"></feMergeNode>
+                  <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+              </filter>
+            </defs>
             {edges.map((edge) => {
               const sourceNode = nodes.find(n => n.id === edge.source);
               const targetNode = nodes.find(n => n.id === edge.target);
@@ -116,19 +133,51 @@ const NeuralNetworkTechStack = () => {
                 (edge.source === hoveredTech.id || edge.target === hoveredTech.id);
               
               return sourceNode && targetNode && (
-                <motion.line
-                  key={edge.id}
-                  x1={sourceNode.x}
-                  y1={sourceNode.y}
-                  x2={targetNode.x}
-                  y2={targetNode.y}
-                  stroke={isHighlighted ? "#ededed" : "#2581c4"}
-                  strokeWidth={isHighlighted ? 2 : 1}
-                  strokeOpacity={isHighlighted ? 0.8 : 0.3}
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 1.5, ease: "easeInOut" }}
-                />
+                <>
+                  {/* Glowing background line with custom color */}
+                  <motion.line
+                    key={`glow-${edge.id}`}
+                    x1={sourceNode.x}
+                    y1={sourceNode.y}
+                    x2={targetNode.x}
+                    y2={targetNode.y}
+                    stroke="#2581c4"
+                    strokeWidth={isHighlighted ? 4 : 2}
+                    strokeOpacity={isHighlighted ? 0.6 : 0.2}
+                    filter="url(#custom-glow)"
+                    initial={{ pathLength: 0 }}
+                    animate={{ 
+                      pathLength: 1,
+                      opacity: [0.2, 0.4, 0.2],
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity, 
+                      ease: "easeInOut" 
+                    }}
+                  />
+                  {/* Main connection line */}
+                  <motion.line
+                    key={edge.id}
+                    x1={sourceNode.x}
+                    y1={sourceNode.y}
+                    x2={targetNode.x}
+                    y2={targetNode.y}
+                    stroke="#2581c4"
+                    strokeWidth={isHighlighted ? 2 : 1}
+                    strokeOpacity={isHighlighted ? 0.8 : 0.3}
+                    initial={{ pathLength: 0 }}
+                    animate={{ 
+                      pathLength: 1,
+                      opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity, 
+                      ease: "easeInOut" 
+                    }}
+                  />
+                </>
               );
             })}
           </svg>
