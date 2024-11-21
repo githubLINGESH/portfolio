@@ -81,14 +81,14 @@ const Experience = () => {
       <style jsx>{`
         @keyframes shake {
           0% { transform: translate(0, 0); }
-          25% { transform: translate(1px, -0.5px); }
-          50% { transform: translate(-1px, 0.5px); }
-          75% { transform: translate(1px, 0.5px); }
+          25% { transform: translate(0.5px, -0.2px); }
+          50% { transform: translate(-0.5px, 0.2px); }
+          75% { transform: translate(0.5px, 0.2px); }
           100% { transform: translate(0, 0); }
         }
 
         .shake {
-          animation: shake 0.3s infinite;
+          animation: shake 0.2s infinite;
         }
       `}</style>
     </section>
