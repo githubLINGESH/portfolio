@@ -18,13 +18,13 @@ const Hero = () => {
   return (
     <section
       ref={ref}
-      className="h-screen bg-black w-full flex items-center justify-center overflow-hidden relative"
+      className="min-h-screen w-full flex items-center justify-center overflow-hidden relative bg-black"
     >
-      {/* Profile Background with ease pop-out transition */}
+      {/* Responsive Profile Background */}
       <motion.div
-        className="absolute inset-0 bg-center"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('Edited.png')",
+          backgroundImage: "url('finalprofile.png')",
           scale: bgScale,
           opacity: bgOpacity,
         }}
@@ -33,7 +33,7 @@ const Hero = () => {
 
       {/* Floating AI image positioned with smooth pop-in */}
       <motion.div
-        className="absolute top-1/3 left-10"
+        className="ml-10"
         style={{ y: y1, rotate, scale, opacity }}
         transition={{
           ease: [0.42, 0, 0.58, 1],
@@ -41,7 +41,7 @@ const Hero = () => {
           delay: 0.3,
         }}
       >
-        <img className="w-20 h-20" src="dl.png" alt="Deep Learning Icon" />
+        <img className="w-20 h-20 sm:w-15 h-15" src="dl.png" alt="Deep Learning Icon" />
       </motion.div>
     </section>
   );

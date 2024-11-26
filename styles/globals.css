@@ -76,3 +76,33 @@ a:hover, button:hover {
 html, body {
   height: 100%;
 }
+
+/* Hero css */
+/* Tailwind already has utility classes for responsiveness, 
+but you can customize the styles in your Tailwind config file or add specific classes. */
+
+@media (max-width: 640px) {
+  .min-h-screen {
+    height: auto; /* Allows the section height to shrink as needed */
+  }
+  .bg-cover {
+    background-size: contain; /* Ensures image scales within the container */
+  }
+
+  .bg-center {
+    background-position: center top; /* Adjust for better alignment */
+  }
+}
+
+/* Optional: For tablets */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .bg-cover {
+    background-size: cover; /* Fill the screen */
+  }
+
+  .bg-center {
+    background-position: center center;
+  }
+}
+
+
