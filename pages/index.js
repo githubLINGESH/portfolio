@@ -8,6 +8,7 @@ import PublishedProjects from '../components/publishedpaper';
 import ClientReviews from '../components/clientReviews';
 import ContactSection from '../components/getInTouch';
 import Footer from '../components/Footer';
+
 import "@fontsource/league-spartan"; // Defaults to weight 400
 
 const Home = () => (
