@@ -13,7 +13,7 @@ app.use(cors());
 // Function to load and profile data
 const loadProfileData = async () => {
     const profileText = `Name: Lingeshwaran G
-                        Education: Bachelor in Computer Science
+                        Education: Bachelor in Artificial Intelligence
                         Experience: Freelance Developer with expertise in React, Node.js, and Python. 
                         Projects: Developed multiple applications in AI, natural language processing, and e-commerce.
                         Skills: Machine Learning, Speech Recognition, Voice Synthesis, Web Development, Emotion Detection.
