@@ -100,10 +100,15 @@ const NeuralNetworkTechStack = () => {
     <div 
       ref={containerRef}
       className="relative min-h-screen bg-black to-black"
+      style={{
+        background: "var(--bg-main)",
+        fontFamily: "League Spartan",
+        color: "var(--text-main)"
+      }}
     >
       <div className="max-w-7xl">
         <h2 className="text-4xl font-bold text-center text-white">
-          Tech Stack Neural Network
+          My Skills - Neural Network
         </h2>
         
         <div className="min-w-screen relative h-[140vh]">
