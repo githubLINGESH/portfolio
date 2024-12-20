@@ -80,17 +80,28 @@ const Experience = () => {
       {/* Shake effect styling */}
       <style jsx>{`
         @keyframes shake {
-          0% { transform: translate(0, 0); }
-          25% { transform: translate(0.5px, -0.2px); }
-          50% { transform: translate(-0.5px, 0.2px); }
-          75% { transform: translate(0.5px, 0.2px); }
-          100% { transform: translate(0, 0); }
+          0% {
+            transform: translate(0, 0);
+          }
+          25% {
+            transform: translate(0.3px, -0.2px);
+          }
+          50% {
+            transform: translate(-0.3px, 0.2px);
+          }
+          75% {
+            transform: translate(0.3px, 0.2px);
+          }
+          100% {
+            transform: translate(0, 0);
+          }
         }
 
         .shake {
-          animation: shake 0.2s infinite;
+          animation: shake 0.5s infinite; /* Increased duration for a more subtle shake */
         }
       `}</style>
+
     </section>
   );
 };

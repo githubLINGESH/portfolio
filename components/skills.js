@@ -111,26 +111,44 @@ const NeuralNetworkTechStack = () => {
           My Skills - Neural Network
         </h2>
         
-        <div className="min-w-screen relative h-[140vh]">
-          {/* Render edges with custom color glow */}
+        <div className="relative h-[140vh]">
           <svg className="absolute inset-0 w-full h-full">
             <defs>
-              {/* Glow filter with custom color */}
+              {/* Gradient definition */}
+              <linearGradient id="edge-gradient" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#2581c4">
+                  <animate
+                    attributeName="offset"
+                    values="0;1;0"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="100%" stopColor="#1bcf54">
+                  <animate
+                    attributeName="offset"
+                    values="1;0;1"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+              </linearGradient>
+              
+              {/* Enhanced glow filter */}
               <filter id="custom-glow">
-                <feColorMatrix 
-                  type="matrix" 
-                  values="0 0 0 0 0.149
-                          0 0 0 0 0.506
-                          0 0 0 0 0.769
-                          0 0 0 1 0"
-                />
-                <feGaussianBlur className="blur" result="coloredBlur" stdDeviation="4"></feGaussianBlur>
+                <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                <feFlood floodColor="#2581c4" result="blue-flood" />
+                <feFlood floodColor="#1bcf54" result="green-flood" />
+                <feComposite in="blue-flood" in2="coloredBlur" operator="in" result="blue-glow" />
+                <feComposite in="green-flood" in2="coloredBlur" operator="in" result="green-glow" />
                 <feMerge>
-                  <feMergeNode in="coloredBlur"></feMergeNode>
-                  <feMergeNode in="SourceGraphic"></feMergeNode>
+                  <feMergeNode in="blue-glow" />
+                  <feMergeNode in="green-glow" />
+                  <feMergeNode in="SourceGraphic" />
                 </feMerge>
               </filter>
             </defs>
+            
             {edges.map((edge) => {
               const sourceNode = nodes.find(n => n.id === edge.source);
               const targetNode = nodes.find(n => n.id === edge.target);
@@ -138,15 +156,15 @@ const NeuralNetworkTechStack = () => {
                 (edge.source === hoveredTech.id || edge.target === hoveredTech.id);
               
               return sourceNode && targetNode && (
-                <>
-                  {/* Glowing background line with custom color */}
+                <g key={edge.id}>
+                  {/* Glowing background line */}
                   <motion.line
                     key={`glow-${edge.id}`}
                     x1={sourceNode.x}
                     y1={sourceNode.y}
                     x2={targetNode.x}
                     y2={targetNode.y}
-                    stroke="#2581c4"
+                    stroke="url(#edge-gradient)"
                     strokeWidth={isHighlighted ? 4 : 2}
                     strokeOpacity={isHighlighted ? 0.6 : 0.2}
                     filter="url(#custom-glow)"
@@ -160,15 +178,23 @@ const NeuralNetworkTechStack = () => {
                       repeat: Infinity, 
                       ease: "easeInOut" 
                     }}
-                  />
-                  {/* Main connection line */}
+                  >
+                    {/* Animated dash array for flowing effect */}
+                    <animate
+                      attributeName="strokeDasharray"
+                      values="0,1000;1000,0"
+                      dur="3s"
+                      repeatCount="indefinite"
+                    />
+                  </motion.line>
+                  
+                  {/* Main connection line with gradient */}
                   <motion.line
-                    key={edge.id}
                     x1={sourceNode.x}
                     y1={sourceNode.y}
                     x2={targetNode.x}
                     y2={targetNode.y}
-                    stroke="#2581c4"
+                    stroke="url(#edge-gradient)"
                     strokeWidth={isHighlighted ? 2 : 1}
                     strokeOpacity={isHighlighted ? 0.8 : 0.3}
                     initial={{ pathLength: 0 }}
@@ -181,20 +207,28 @@ const NeuralNetworkTechStack = () => {
                       repeat: Infinity, 
                       ease: "easeInOut" 
                     }}
-                  />
-                </>
+                  >
+                    {/* Animated dash array for flowing effect */}
+                    <animate
+                      attributeName="strokeDasharray"
+                      values="0,1000;1000,0"
+                      dur="3s"
+                      repeatCount="indefinite"
+                    />
+                  </motion.line>
+                </g>
               );
             })}
           </svg>
 
-          {/* Render nodes */}
+          {/* Node rendering remains the same but with updated hover effects */}
           {nodes.map((tech) => (
             <motion.div
               key={tech.id}
               className="absolute transform -translate-x-1/2 -translate-y-1/2"
               style={{ 
-                left: tech.x - 30, // Shift 50px to the left
-                top: tech.y - 30   // Shift 30px upward
+                left: tech.x - 30,
+                top: tech.y - 30,
               }}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -203,7 +237,7 @@ const NeuralNetworkTechStack = () => {
               onMouseLeave={() => setHoveredTech(null)}
             >
               <div className={`relative p-3 rounded-lg transition-all duration-300 ${
-                hoveredTech?.id === tech.id ? 'scale-125 bg-gray-800 shadow-lg' : ''
+                hoveredTech?.id === tech.id ? 'scale-125 bg-gradient-to-r hover:from-black hover:to-green-400 shadow-lg' : ''
               }`}>
                 <img 
                   src={tech.icon} 
@@ -218,10 +252,12 @@ const NeuralNetworkTechStack = () => {
               </div>
 
               {hoveredTech?.id === tech.id && (
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-8 p-4 bg-gray-800 rounded-lg shadow-xl z-10 w-64">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-8 p-4 rounded-lg shadow-xl z-10 w-64 
+                                bg-gradient-to-r from-blue-500 to-green-500"
+                >
                   <h3 className="text-lg font-bold text-white mb-2">{tech.name}</h3>
                   <p className="text-sm text-gray-300 mb-2">{tech.usage}</p>
-                  <div className="text-xs text-gray-400">
+                  <div className="text-xs text-black">
                     <strong className="text-gray-300">Projects:</strong>
                     <ul className="list-disc pl-4 mt-1">
                       {tech.projects.map((project, idx) => (

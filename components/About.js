@@ -29,9 +29,9 @@ const About = () => (
             href="https://www.fiverr.com/s/e6YjBNj" // Target URL
             target="_blank" // Opens in a new tab
             rel="noopener noreferrer" // Security best practice
-            className="relative px-6 py-3 font-bold text-white rounded-lg"
+            className="relative px-6 py-3 font-bold text-white rounded-lg hover:scale-105 transition-transform"
             style={{
-              background: "black", // button inner background
+              background: "black",
               border: "3px solid transparent",
               borderRadius: "8px",
               backgroundImage: "linear-gradient(black, black), linear-gradient(to right, #2581c4, #1bcf54)",
@@ -41,19 +41,40 @@ const About = () => (
               transition: "all 0.3s ease",
               textDecoration: "none", // Remove underline
             }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundImage =
+                "linear-gradient(black, black), linear-gradient(to right, #1bcf54, #2581c4)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundImage =
+                "linear-gradient(black, black), linear-gradient(to right, #2581c4, #1bcf54)")
+            }
           >
             Start Project
           </a>
 
-          {/* Download Resume Button */}
-          <a
-            href="https://drive.google.com/file/d/1DiEcuSbhUsDrv6VahgOyCcpI_xoO6x90/view?usp=sharing"
-            download="Lingesh_Resume.pdf" // File name for download
-            className="px-6 py-4 bg-gray-200 text-black font-bold rounded-lg transition"
-            style={{ textDecoration: "none" }} // Remove underline
-          >
-            Download Resume
-          </a>
+      {/* Download Resume Button */}
+      <a
+        href="https://drive.google.com/file/d/1DiEcuSbhUsDrv6VahgOyCcpI_xoO6x90/view?usp=sharing"
+        download="Lingesh_Resume.pdf" // File name for download
+        className="px-6 py-4 bg-gray-200 font-bold text-black rounded-lg transition hover:scale-105 hover:shadow-lg hover:text-white"
+        style={{
+          backgroundImage: "linear-gradient(to right, #2581c4, #2581c4)",
+          textDecoration: "none", // Remove underline
+          transition: "all 0.3s ease",
+        }}
+        onMouseEnter={(e) =>
+          (e.currentTarget.style.backgroundImage =
+            "linear-gradient(to right, #1bcf54, #2581c4)")
+        }
+        onMouseLeave={(e) =>
+          (e.currentTarget.style.backgroundImage =
+            "linear-gradient(to right, #2581c4, #1bcf54)")
+        }
+      >
+        Download Resume
+      </a>
+
         </div>
       </div>
 

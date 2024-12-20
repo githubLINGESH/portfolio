@@ -94,7 +94,6 @@ but you can customize the styles in your Tailwind config file or add specific cl
   }
 }
 
-
 /* Optional: For tablets */
 @media (min-width: 641px) and (max-width: 1024px) {
   .bg-cover {
