@@ -4,7 +4,7 @@ import About from '../components/About';
 import Projects from '../components/Projects';
 import Experience from '../components/Experience';
 import Skills from '../components/skills';
-import PublishedProjects from '../components/publishedpaper';
+import PublishedPapers from '../components/publishedpaper';
 import ClientReviews from '../components/clientReviews';
 import ContactSection from '../components/getInTouch';
 import Footer from '../components/Footer';
@@ -20,7 +20,7 @@ const Home = () => (
     <Experience />
     <Skills />
     <Projects />
-    <PublishedProjects />
+    <PublishedPapers />
     <ClientReviews />
     <ContactSection />
     <Footer />

@@ -81,7 +81,7 @@ const About = () => (
       {/* Right Column - Profile Image */}
       <div className="w-full lg:w-1/3 flex items-center justify-center">
         <img
-          src="/profileimg.jpg"
+          src="/Lingesh_profile.png"
           alt="Profile"
           className="rounded-lg shadow-lg object-cover w-40 h-40 sm:w-48 sm:h-48 lg:w-full lg:h-auto"
         />
