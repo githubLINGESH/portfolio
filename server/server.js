@@ -30,12 +30,32 @@ const queryGemini = async (query, profileText) => {
         const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-        const prompt = `User query: "${query}"\n\nProfile Information:\n${profileText}`;
+        // Helper function to force execution to pause
+        const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+        const prompt = `
+            You are a helpful assistant. Use the following user profile context to answer their query.
+            
+            Profile Information:
+            ${profileText}
+            
+            User query: ${query}
+        `;
 
         const result = await model.generateContent(prompt);
-        console.log(result.response.text());
         return result.response.text() || 'No relevant information found.';
+
     } catch (error) {
+        // Check if it's a 429 Quota / Rate Limit error
+        if (error.status === 429 && retries > 0) {
+            console.warn(`[429 Rate Limited] Quota hit. Retrying in 40 seconds... (${retries} retries left)`);
+            
+            // Wait 40 seconds to completely clear the Free Tier 1-minute window
+            await sleep(40000); 
+            
+            // Recursively call the function again, reducing remaining retry attempts
+            return queryGemini(query, profileText, retries - 1);
+        }
+
         console.error('Error querying Gemini:', error);
         return 'There was an error processing your request.';
     }
