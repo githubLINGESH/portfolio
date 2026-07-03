@@ -27,7 +27,7 @@ const loadProfileData = async () => {
 // Function to query Gemini with data
 const queryGemini = async (query, profileText) => {
     try {
-        const genAI = new GoogleGenerativeAI("AIzaSyCSTNxkfVcHOS_XtBqydmeEC7I14Hsl94k");
+        const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
         const prompt = `User query: "${query}"\n\nProfile Information:\n${profileText}`;
