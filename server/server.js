@@ -24,14 +24,15 @@ const loadProfileData = async () => {
     return profileText;
 };
 
+// Helper function to force execution to pause
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 // Function to query Gemini with data
-const queryGemini = async (query, profileText) => {
+const queryGemini = async (query, profileText, retries = 3) => {
     try {
         const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-        // Helper function to force execution to pause
-        const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
         const prompt = `
             You are a helpful assistant. Use the following user profile context to answer their query.
             
